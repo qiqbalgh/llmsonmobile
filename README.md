@@ -1,69 +1,128 @@
 # llmsonmobile
-📱 Mobile-Native GenAI at the Edge
+# 📱 Mobile-Native GenAI at the Edge
 
-Running LLMs, Vector Search, and RAG directly on iOS & Android
+<p align="center">
+  <img src="images/ipad_pro_vs_iphone16.jpg" width="800"/>
+</p>
 
-Solving GenAI concurrency and data-control challenges by pushing inference to the edge.
+**Running LLMs, Vector Search, and RAG directly on iOS & Android**
 
-Why This Project Exists
+Solving GenAI **concurrency** and **data-control** challenges by pushing inference to the edge.
 
-Modern GenAI systems face a fundamental scalability issue:
+---
 
-LLMs typically generate ~100–200 tokens/sec per request
+## Why This Project Exists
 
-Handling hundreds or thousands of concurrent users requires expensive servers
+Modern GenAI systems face a fundamental scalability problem:
 
-Cloud dependency increases cost, latency, and data exposure
+- LLMs typically generate **~100–200 tokens/sec per request**
+- Supporting **hundreds or thousands of concurrent users** requires costly servers
+- Cloud dependency increases **latency, operational cost, and data exposure**
 
 This project explores a different approach:
 
-Distribute GenAI workloads across mobile devices instead of scaling servers.
+> **Distribute GenAI workloads across mobile devices instead of scaling servers.**
 
-What This Enables
+---
 
-✔ Native LLM inference on iOS & Android
-✔ Mobile-native vector database & similarity search
-✔ On-device RAG pipelines
-✔ A custom Python runtime for mobile AI workflows
+## What This Enables
 
-Together, these turn smartphones into distributed AI edge nodes.
+✔ Native LLM inference on **iOS & Android**  
+✔ Mobile-native **vector database & similarity search**  
+✔ **On-device RAG** pipelines  
+✔ A **custom Python runtime** for mobile AI workflows  
 
-Current Capabilities
-🤖 Model Support
+Together, these capabilities turn smartphones into **distributed AI edge nodes**.
 
-1B – 7B parameter models
+---
 
-Quantized & mixed-precision execution
+## LLMs on Mobile
 
-Tested models include:
+<p align="center">
+  <img src="images/gemma-3-1b-it-f16.jpg" width="600"/>
+</p>
 
-DeepSeek
+<p align="center">
+  <img src="images/gemma-3-270m-Q8_0.jpg" width="600"/>
+</p>
 
-Phi-3
+### 🤖 Model Support
+- **1B – 7B parameter models**
+- Quantized and mixed-precision execution
 
-Mistral
+**Tested models include:**
+- DeepSeek
+- Phi-3
+- Mistral
+- Gemma
+- LLaMA
+- Qwen
+- Dolphin
 
-Gemma
+---
 
-LLaMA
+## Vector Database & Search
 
-Qwen
+<p align="center">
+  <img src="images/vector_db_search.jpg" width="700"/>
+</p>
 
-Dolphin
+Fast **native vector indexing and similarity search** running directly on mobile hardware, without server round-trips.
 
-📊 Example Benchmark
+---
 
-4M vectors · 100 dimensions · 5-NN query
+## Performance Benchmarks
 
-Device	Index Build	Query Time
-iPhone 16 Pro	674 ms	75 ms
-Moto G (~$50)	8.66 s	281 µs
+### Vector Search Benchmark  
+**4M vectors · 100 dimensions · 5-NN query**
 
-Even low-cost Android devices deliver exceptional query latency once indexed.
+| Device | Index Build | Query Time |
+|------|------------|------------|
+| iPhone 16 Pro | 674 ms | 75 ms |
+| Moto G (~$50) | 8.66 s | 281 µs |
 
-Supported Platforms
-Platform	Status
-iOS	✅ Active
-Android	✅ Active
-Python (mobile)	✅ Working
-RAG	🚧 In progress
+> Even low-cost Android devices deliver **exceptional query latency once indexed**.
+
+---
+
+### Token Throughput (iPhone 16 Pro)
+
+<p align="center">
+  <img src="images/iphonepro_tokens_sec.jpg" width="650"/>
+</p>
+
+---
+
+### CPU vs GPU Execution (iPhone 16 Pro)
+
+<p align="center">
+  <img src="images/iphonepro_cpu_vs_gpu.jpg" width="650"/>
+</p>
+
+---
+
+## Supported Platforms
+
+| Platform | Status |
+|--------|--------|
+| iOS | ✅ Active |
+| Android | ✅ Active |
+| Python (mobile) | ✅ Working |
+| RAG | 🚧 In progress |
+
+---
+
+## Takeaway
+
+Mobile platforms are now capable of running **serious GenAI workloads** — including LLM inference, vector search, and Python-based workflows.
+
+By shifting inference to the edge, we can:
+- Reduce server-side concurrency pressure
+- Improve latency and privacy
+- Enable cost-effective, scalable GenAI systems
+
+The edge is ready.
+
+---
+
+⭐ If this project resonates with you, consider starring the repo or opening an issue to collaborate.
