@@ -1,36 +1,41 @@
 # llmsonmobile
-Mobile-Native GenAI: LLMs, Vector Search & RAG at the Edge
+📱 Mobile-Native GenAI at the Edge
 
-This project explores running modern GenAI workloads directly on mobile devices (iOS & Android) — including LLM inference, vector database search, and RAG — as a scalable alternative to centralized AI servers.
+Running LLMs, Vector Search, and RAG directly on iOS & Android
 
-🚀 Motivation
+Solving GenAI concurrency and data-control challenges by pushing inference to the edge.
 
-Most GenAI systems face a concurrency scalability problem:
+Why This Project Exists
 
-LLMs typically generate 100–200 tokens/sec per request
+Modern GenAI systems face a fundamental scalability issue:
 
-Scaling to hundreds or thousands of users requires massive server resources
+LLMs typically generate ~100–200 tokens/sec per request
 
-Cloud dependency introduces cost, latency, and data-control concerns
+Handling hundreds or thousands of concurrent users requires expensive servers
 
-Our approach:
-👉 Push inference and retrieval to the edge using mobile devices.
+Cloud dependency increases cost, latency, and data exposure
 
-📱 What This Project Does
+This project explores a different approach:
 
-Runs LLMs natively on iOS and Android
+Distribute GenAI workloads across mobile devices instead of scaling servers.
 
-Implements mobile-native vector databases & search
+What This Enables
 
-Enables on-device RAG pipelines
+✔ Native LLM inference on iOS & Android
+✔ Mobile-native vector database & similarity search
+✔ On-device RAG pipelines
+✔ A custom Python runtime for mobile AI workflows
 
-Provides a custom Python runtime for mobile AI workflows
+Together, these turn smartphones into distributed AI edge nodes.
 
-This turns phones into distributed AI nodes, offloading concurrency from servers.
+Current Capabilities
+🤖 Model Support
 
-✅ Current Capabilities
+1B – 7B parameter models
 
-LLMs supported (1B–7B parameters):
+Quantized & mixed-precision execution
+
+Tested models include:
 
 DeepSeek
 
@@ -46,73 +51,19 @@ Qwen
 
 Dolphin
 
-Performance
+📊 Example Benchmark
 
-Up to ~100 tokens/sec (device/model dependent)
+4M vectors · 100 dimensions · 5-NN query
 
-Fast native vector search on iOS & Android
+Device	Index Build	Query Time
+iPhone 16 Pro	674 ms	75 ms
+Moto G (~$50)	8.66 s	281 µs
 
-Platform Support
+Even low-cost Android devices deliver exceptional query latency once indexed.
 
-iOS (Metal / CoreML where applicable)
-
-Android (CPU / NNAPI paths)
-
-Python runtime on mobile
-
-🧩 Use Cases
-
-Offline GenAI applications
-
-Privacy-preserving inference
-
-Edge RAG systems
-
-Field visualization & analytics
-
-Distributed AI concurrency
-
-Cost-sensitive AI deployments
-
-🛠️ Project Status
-
-✅ LLM inference on mobile
-
-✅ Vector DB + search
-
-🚧 RAG pipelines
-
-🚧 Developer SDKs
-
-🚧 Packaging & docs
-
-See the Roadmap
- for details.
-
-🤝 Who This Is For
-
-Mobile developers
-
-AI engineers
-
-Edge computing researchers
-
-Startups building privacy-first AI
-
-Anyone interested in on-device GenAI
-
-📬 Get Involved
-
-If you’re interested in:
-
-Collaborating
-
-Testing on new devices
-
-Porting models
-
-Building real-world apps
-
-👉 Open an issue, submit a PR, or connect.
-
-Let’s push the boundaries of mobile-native AI.
+Supported Platforms
+Platform	Status
+iOS	✅ Active
+Android	✅ Active
+Python (mobile)	✅ Working
+RAG	🚧 In progress
