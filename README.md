@@ -12,7 +12,7 @@ Modern GenAI systems face a fundamental scalability problem:
 
 LLMs typically generate ~100–200 tokens/sec per request
 
-Supporting hundreds or thousands of concurrent users requires costly servers
+Supporting hundreds or thousands of concurrent users requires costly server infrastructure
 
 Cloud dependency increases latency, operational cost, and data exposure
 
@@ -25,54 +25,40 @@ What This Enables
 ✔ Native LLM inference on iOS & Android
 ✔ Mobile-native vector database & similarity search
 ✔ On-device RAG pipelines
-✔ A custom Python runtime for mobile AI workflows
+✔ Custom Python runtime for mobile AI workflows
 
 Together, these capabilities turn smartphones into distributed AI edge nodes.
 
 Native Libraries Included
 
-This repository includes prebuilt native binaries required for on-device inference across supported architectures.
+This repository contains prebuilt native binaries required for on-device LLM inference across supported mobile platforms.
 
-📦 Android (ARM64)
-libs/android/arm64-v8a/libc++_shared.so
-libs/android/arm64-v8a/libllama.so
+📦 Android (ARM64 – arm64-v8a)
+File	Type	Purpose
+libs/android/arm64-v8a/libllama.so	Shared Library	Core LLM inference engine
+libs/android/arm64-v8a/libc++_shared.so	Shared Library	Required C++ runtime dependency
 
+Supported ABI: arm64-v8a
 
-libllama.so – Core LLM inference engine
+🍎 iOS (Physical Device)
+File	Type	Purpose
+libs/ios/device/Llama.framework/Info.plist	Framework Metadata	Framework configuration
+libs/ios/device/Llama.framework/Llama	Framework Binary	Native inference framework
+libs/ios/device/default.metallib	Metal Shader Library	GPU acceleration shaders
+libs/ios/device/libllama.dylib	Dynamic Library	Runtime linking support
+libs/ios/device/libllama_cpu.a	Static Library	CPU backend
+libs/ios/device/libllama_gpu.a	Static Library	GPU backend (Metal)
 
-libc++_shared.so – Required C++ runtime dependency
-
-Target ABI:
-
-arm64-v8a
-
-🍎 iOS (Device)
-libs/ios/device/Llama.framework/Info.plist
-libs/ios/device/Llama.framework/Llama
-libs/ios/device/default.metallib
-libs/ios/device/libllama.dylib
-libs/ios/device/libllama_cpu.a
-libs/ios/device/libllama_gpu.a
-
-
-Llama.framework – Native inference framework
-
-default.metallib – Metal GPU shaders
-
-libllama_cpu.a – CPU backend
-
-libllama_gpu.a – GPU backend (Metal)
-
-libllama.dylib – Dynamic runtime
+Architecture: ARM64 (iOS devices)
 
 🍎 iOS (Simulator)
-libs/ios/simulator/Llama.framework/Info.plist
-libs/ios/simulator/Llama.framework/Llama
-libs/ios/simulator/libllama.a
-libs/ios/simulator/libllama.dylib
+File	Type	Purpose
+libs/ios/simulator/Llama.framework/Info.plist	Framework Metadata	Framework configuration
+libs/ios/simulator/Llama.framework/Llama	Framework Binary	Simulator-compatible framework
+libs/ios/simulator/libllama.a	Static Library	Simulator backend
+libs/ios/simulator/libllama.dylib	Dynamic Library	Runtime linking support
 
-
-Provides simulator-compatible builds for development and testing.
+Architecture: x86_64 / Apple Silicon Simulator
 
 LLMs on Mobile
 <p align="center"> <img src="images/gemma-3-1b-it-f16.jpg" width="600"/> </p> <p align="center"> <img src="images/gemma-3-270m-Q8_0.jpg" width="600"/> </p>
@@ -122,8 +108,36 @@ Supported Platforms
 Platform	Status
 iOS	✅ Active
 Android	✅ Active
-Python (mobile)	✅ Working
-RAG	🚧 In progress
+Python (mobile runtime)	✅ Working
+RAG	🚧 In Progress
+⚖️ Disclaimer & Limitation of Liability
+
+The native libraries and binaries included in this repository (including but not limited to libllama.so, libllama.dylib, libllama_cpu.a, libllama_gpu.a, Llama.framework, and related files) are provided "AS IS", without warranty of any kind.
+
+To the fullest extent permitted by applicable law:
+
+The author provides these materials without any express or implied warranties, including but not limited to merchantability, fitness for a particular purpose, and non-infringement.
+
+The author shall not be liable for any claims, damages, losses, or liabilities arising from:
+
+Use or misuse of the libraries
+
+Integration into applications
+
+Distribution or commercial deployment
+
+Regulatory, licensing, or export compliance issues
+
+By downloading, copying, or using these materials, you acknowledge that:
+
+You assume full responsibility and risk.
+
+You waive any right to bring claims against the author related to their use.
+
+No partnership, joint venture, agency, or legal relationship is created.
+
+If you do not agree to these terms, do not use the materials.
+
 Takeaway
 
 Mobile platforms are now capable of running serious GenAI workloads — including LLM inference, vector search, and Python-based workflows.
